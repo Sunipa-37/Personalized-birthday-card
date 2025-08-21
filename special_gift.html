@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Diary Letter</title>
+<style>
+    body {
+        background: linear-gradient(135deg, #fff0f5, #ffe4e1, #ffe6cc);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        font-family: 'Georgia', serif;
+        padding: 40px;
+        color: #4b0082;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    marquee {
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(198, 29, 150);
+        margin-bottom: 30px;
+    }
+
+    .diary-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Transparent floral/mandala background inside container */
+    .diary-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('mandala.png') center center / contain no-repeat;
+        opacity: 0.1;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    #letter {
+        font-size: 15px;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Blue underline effect for each line */
+    #letter span {
+        display: block;
+        border-bottom: 1px solid rgba(0, 123, 255, 0.3);
+        padding-bottom: 4px;
+        margin-bottom: 6px;
+    }
+    a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: plum;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+a:hover {
+    background: #d580ff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+</style>
+
+</head>
+<body>
+
+<marquee behavior="scroll" direction="left">EAST OR WEST, DEBARATI MA'AM IS THE BEST!!!</marquee>
+
+<div class="diary-container">
+    <div id="letter">
+        <!-- Letter will appear here with typewriter effect -->
+    </div>
+</div>
+<a href="letter.html">Gift</a>
+<script>
+const letterContent = `Happy Birthday, Debarati Ma'am!
+I feel truly blessed to have a guide like you. On your special day, I wanted to take a moment to let you know how incredible you are. Your dedication, warmth, and kindness make the world a better place.May this year bring you even more success, happiness, and unforgettable memories. Cheers to another amazing year of life’s journey!You are the teacher who taught me C, Data Structure, and DBMS, and more than that, you guided me like a mother figure. Whenever I came to you with any problem, you were always there to help and support me. You constantly motivate me to do better and give me invaluable lessons on honesty, hard work, and kindness—lessons I will carry with me forever. Lastly, I just want to express my heartfelt gratitude. Everything I have learned from you, I am extremely grateful for, and I hope one day I can also become a person like you. Thank you so much for everything, Ma'am. You mean a lot to me!
+With love and respect,sunipa`;
+
+const letter = document.getElementById('letter');
+const lines = letterContent.split('\n');
+
+let lineIndex = 0;
+
+function typeLine() {
+    if(lineIndex < lines.length) {
+        const span = document.createElement('span'); // create span for this line
+        letter.appendChild(span);
+        let charIndex = 0;
+        const currentLine = lines[lineIndex];
+
+        function typeChar() {
+            if(charIndex < currentLine.length) {
+                span.textContent += currentLine.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, 30); // typing speed
+            } else {
+                lineIndex++;
+                letter.appendChild(document.createElement('br')); // move to next line
+                setTimeout(typeLine, 50); // small pause between lines
+            }
+        }
+
+        typeChar();
+    }
+}
+
+typeLine();
+</script>
+
+</body>
+</html>

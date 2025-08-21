@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        padding: 40px 20px;
+        overflow-x: hidden;
+
+        /* Gradient background like index page */
+        background: linear-gradient(135deg, #ffe6f0, #ffd9b3, #ffccff);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: rgb(113, 3, 82); /* Darker text color for visibility */
+        position: relative;
+    }
+
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+        font-size: 1.5em; /* smaller font size */
+        line-height: 1.8em;
+        margin-bottom: 40px;
+        animation: floatText 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatText {
+        0% { transform: translateY(0px); opacity: 0.8; }
+        50% { transform: translateY(-10px); opacity: 1; }
+        100% { transform: translateY(0px); opacity: 0.8; }
+    }
+
+    .who-div {
+        display: inline-block;
+        padding: 10px 25px;
+        background-color: plum;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        margin-top: 20px;
+    }
+
+    .who-div:hover {
+        background-color: rgb(255, 102, 204);
+        transform: scale(1.05);
+    }
+
+    #maam-photo {
+        display: none;
+        margin: 30px auto 0 auto;
+        width: 300px;
+        max-width: 90%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1>
+        Heart of the department!!!<br>
+        Most discipline!!!<br>
+        Most caring!!!<br>
+        Most inspiring!!!<br>
+        Everyone's favorite!!!
+    </h1>
+
+    <div class="who-div" onclick="showPhoto()" aria-label="Click to reveal Ma’am's photo">WHO???</div>
+    <img id="maam-photo" src="dbmam.jpg.png" alt="Debarati Ma'am">
+
+    <script>
+        function showPhoto() {
+            const photo = document.getElementById('maam-photo');
+            photo.style.display = 'block';
+            photo.style.opacity = 0;
+            let op = 0;
+            const fadeIn = setInterval(() => {
+                if (op >= 1) clearInterval(fadeIn);
+                photo.style.opacity = op;
+                op += 0.05;
+            }, 30);
+        }
+    </script>
+</body>
+</html>

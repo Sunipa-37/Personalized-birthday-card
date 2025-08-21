@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<style>
+    body {
+        background: linear-gradient(135deg, #ffe6f0, #ffd9b3, #ffccff);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    header {
+        color: rgb(113, 3, 82);
+        position: relative;
+    }
+
+    img {
+        border-radius: 70%; /* soft rounded rectangle */
+        margin-top: 20px;
+        transition: transform 0.3s;
+    }
+    img:hover {
+        transform: scale(1.10); /* slight zoom on hover for effect */
+    }
+
+    a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background-color: plum;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 12px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255,255,255,0.7);
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+    }
+
+    /* Confetti pieces */
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: #f06292;
+        top: 0;
+        left: 50%;
+        opacity: 0.8;
+        z-index: 9999;
+        pointer-events: none;
+        border-radius: 50%;
+        animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(600px) rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1 id="birthday-heading">🎉 Happy Birthday, Debarati Ma'am! 🎉</h1>
+        <img src="debarati_maam.jpg - Copy.jpg" alt="Blessed to have a guide like her" width="350" height="400">
+    </header>
+    <section>
+        
+        <a href="special_gift.html">Ma'am i worte a letter for you please have a look</a>
+    </section>
+</div>
+
+<script>
+// --- Typewriter effect for heading ---
+const heading = document.getElementById('birthday-heading');
+const text = heading.textContent;
+heading.textContent = '';
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        heading.textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+    }
+}
+typeWriter();
+
+// --- Confetti effect ---
+function createConfetti() {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * window.innerWidth + 'px';
+    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 70%)`;
+    document.body.appendChild(confetti);
+    setTimeout(() => confetti.remove(), 3000);
+}
+setInterval(createConfetti, 150);
+</script>
+</body>
+</html>
