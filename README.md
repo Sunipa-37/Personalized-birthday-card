@@ -71,11 +71,7 @@ A **heartfelt, multi-page web experience** to celebrate and appreciate a very sp
 
 ---
 
-## 📸 Screenshots
 
-*(Add screenshots of the index page, diary letter, and final surprise page here)*
-
----
 
 ## 💖 A Personal Note
 
