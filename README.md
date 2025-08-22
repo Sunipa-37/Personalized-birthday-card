@@ -1,6 +1,4 @@
-Absolutely, Sunipa! Here’s a **full, attractive, and professional README** tailored to your project:
 
----
 
 # 🎉 Interactive Birthday Web Project for Debarati Ma’am 🎉
 
@@ -76,9 +74,5 @@ A **heartfelt, multi-page web experience** to celebrate and appreciate a very sp
 ## 💖 A Personal Note
 
 This project is a **labor of love** dedicated to Debarati Ma’am, a guide, mentor, and inspiration. It’s designed to **celebrate her warmth, dedication, and kindness** in a fun, interactive way.
-
----
-
-If you want, I can also make a **more “GitHub-friendly compact version”** that looks extra appealing in the repo preview with emojis, badges, and one-line hooks.
 
 Do you want me to do that too?
